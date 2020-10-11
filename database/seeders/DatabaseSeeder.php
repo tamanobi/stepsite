@@ -13,6 +13,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        \App\Models\User::factory(10)->create();
+        $groups = ['無料会員', 'シルバー会員', 'ゴールド会員'];
+        foreach ($groups as $group) {
+            \App\Models\Group::create(['name' => $group]);
+        }
     }
 }
