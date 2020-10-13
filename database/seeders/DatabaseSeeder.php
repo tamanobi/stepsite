@@ -18,5 +18,8 @@ class DatabaseSeeder extends Seeder
         foreach ($groups as $group) {
             \App\Models\Group::create(['name' => $group]);
         }
+        $this->call([
+            UsersTableSeeder::class,
+        ]);
     }
 }

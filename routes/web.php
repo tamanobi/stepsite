@@ -16,12 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/users', function () {
-    return view('hoge', ['users' => \App\Models\User::all(), 'groups' => \App\Models\Group::all()]);
-});
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
+Route::get('/admin/users', 'AdminUserController@show')->name('admin.users');
+Route::get('/login', 'LoginController@show')->name('login');
+Route::post('/login', 'LoginController@authenticate');
+Route::get('/logout', 'LogoutController@show')->name('logout');
+Route::post('/logout', 'LogoutController@logout');
 Route::post('/users', function () {
     $request_user = request()->users;
     $user_ids = array_keys(request()->users);

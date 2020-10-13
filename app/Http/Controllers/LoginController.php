@@ -19,7 +19,12 @@ class LoginController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('/users');
+            return redirect('/users');
         }
+    }
+
+    public function show(Request $request)
+    {
+        return view('login');
     }
 }

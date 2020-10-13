@@ -6,6 +6,11 @@
     <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
 </head>
 <body>
+    @if ($email)
+      <h1>You are loggin as {{ $email }}.</h1>
+    @else
+      <h1>You are not logged in.</h1>
+    @endif
     <form method="post">
         <input type="hidden" name="_token" value="{{csrf_token()}}">
         <table>
