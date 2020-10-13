@@ -19,6 +19,9 @@ Route::get('/', function () {
 Route::get('/users', function () {
     return view('hoge', ['users' => \App\Models\User::all(), 'groups' => \App\Models\Group::all()]);
 });
+Route::get('/login', function () {
+    return view('login');
+})->name('login');
 Route::post('/users', function () {
     $request_user = request()->users;
     $user_ids = array_keys(request()->users);
