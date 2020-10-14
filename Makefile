@@ -9,5 +9,13 @@ bash:
 tinker:
 	${dockercompose} run --rm app bash -c "php artisan tinker"
 
+.PHONY: stop
+stop:
+	${dockercompose} stop
+
+.PHONY: start
+start:
+	${dockercompose} start
+
 .PHONY: deploy
 	git push heroku main
