@@ -16,7 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/admin/users', 'AdminUserController@show')->name('admin.users');
+Route::prefix('admin')->group(function () {
+    Route::get('users', 'AdminUserController@show')->name('admin.users');
+    Route::get('groups', 'AdminGroupController@show')->name('admin.groups');
+});
 Route::get('/login', 'LoginController@show')->name('login');
 Route::post('/login', 'LoginController@authenticate');
 Route::get('/logout', 'LogoutController@show')->name('logout');
