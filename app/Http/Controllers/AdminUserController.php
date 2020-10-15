@@ -13,6 +13,6 @@ class AdminUserController extends Controller
         if (Auth::check()) {
             $email = Auth::user()->email;
         }
-        return view('hoge', ['email' => $email,'users' => \App\Models\User::all(), 'groups' => \App\Models\Group::all()]);
+        return view('admin.users', ['email' => $email,'users' => \App\Models\User::all(), 'groups' => \App\Models\Group::all()]);
     }
 }
