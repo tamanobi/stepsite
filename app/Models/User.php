@@ -49,4 +49,9 @@ class User extends Authenticatable
             'user_id',
             'group_id');
     }
+
+    public function accounts()
+    {
+        return $this->hasMany('App\Models\LinkedSocialAccount');
+    }
 }

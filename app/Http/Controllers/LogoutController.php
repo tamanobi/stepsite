@@ -16,7 +16,7 @@ class LogoutController extends Controller
     {
         if (Auth::check()) {
             Auth::logout();
-            return redirect('admin.users');
         }
+        return redirect()->route('admin.users');
     }
 }
