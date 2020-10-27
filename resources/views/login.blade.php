@@ -56,6 +56,7 @@
   </div>
 </form>
 
+<a href="{{ route('line.login') }}">LINEでログイン</a>
 
 </body>
 </html>

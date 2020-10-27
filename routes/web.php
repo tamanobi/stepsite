@@ -39,3 +39,7 @@ Route::post('/users', function () {
     }
     return redirect('/users');
 });
+// LINEの認証画面に遷移
+Route::get('auth/line', 'Auth\LineOAuthController@redirectToProvider')->name('line.login');
+// 認証後にリダイレクトされるURL(コールバックURL)
+Route::get('auth/line/callback', 'Auth\LineOAuthController@handleProviderCallback');
